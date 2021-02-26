@@ -1,0 +1,39 @@
+{% extends 'root_template.html' %}
+
+{% block head_extra %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'root/css/feed.css' %}">   
+{% endblock %}
+
+{% block content %}
+
+    
+    <div class="feed__elements">
+        <div class="feed__element feed__title--title">
+            Welcome to your feed.
+        </div>
+        {% for item in items %}
+            {% if item.verb == 'created' %}
+                <div class="feed__element">
+                    {% include "subtemplates/new_acc.html" %}    
+                </div>
+            {% elif item.verb == 'followed' %}
+                <div class="feed__element">
+                    {% include "subtemplates/following.html" %}    
+                </div>
+            {% elif item.verb == 'liked' %}
+                <div class="feed__element">
+                    {% include "subtemplates/like.html" %}    
+                </div>
+            {% else %}
+                <div class="feed__element">
+                    {% include "subtemplates/post.html" %}    
+                </div>
+            {% endif %}
+            
+        {% endfor %}
+       
+    </div>
+    
+    
+{% endblock %}

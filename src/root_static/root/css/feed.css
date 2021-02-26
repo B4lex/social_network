@@ -1,0 +1,32 @@
+.feed__elements{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto 
+}
+.feed__elements .feed__element{
+    margin-top: 20px;
+}
+.feed__title--title{
+    text-align: center;
+}
+.friends-activity-block{
+    padding: 8px;
+    width:100%;
+    border: 1px solid black;
+    display: flex;
+    text-align: left;
+}
+.friends-activity-block  .user{
+    display:flex;
+}
+.user .user__photo img{
+    height: 20px;
+    width: 20px;
+}
+.user .username {
+    font-weight: bold;
+}
+.post{
+    height: 200px;
+    background-color: azure;
+}

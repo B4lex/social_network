@@ -16,11 +16,18 @@ class Action(models.Model):
         ordering = ('-created',)
 
 class Feed:
-    pass
+    def __init__(self, user):
+        self.user = user
 
 class UserFeed(Feed):
-    pass
+    def get_feed_data(self):
+        actions = Action.objects.exclude(user=self.user)
+        # following_ids = self.user.following.values_list('id', flat=True)
+        # actions = actions.filter(user_id__in = following_ids)
+        actions.select_related('user', 'user__profile').prefetch_related('target')[:10]
+        self.data = actions
 
 class ProfileFeed(Feed):
-    pass
+    def get_feed_data(self):
+        pass
 
