@@ -1,0 +1,28 @@
+.google-auth {
+    border: solid 1px rgb(184, 47, 47);
+    background-color: rgb(184, 47, 47);
+    height: 30px;
+    border-radius: 5px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    transition: .5s;
+}
+
+.google-auth:hover {
+    background-color: white;
+    color: rgb(184, 47, 47);
+}
+
+.google-auth>img {
+    width: 25px;
+    height: 25px;
+    margin-right: 25px;
+}
+
+.content-wrap {
+    display: flex;
+}
