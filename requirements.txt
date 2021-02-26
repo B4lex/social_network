@@ -1,3 +1,1 @@
 Django==3.1.7
-Pillow==8.1.0
-social_auth_app_django==4.0.0

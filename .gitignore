@@ -1,6 +1,4 @@
 venv
 .idea
 media
-db.sqlite3
-/src/static/
-__pycache__
+sqlite3.db
