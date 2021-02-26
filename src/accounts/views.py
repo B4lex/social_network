@@ -34,7 +34,7 @@ class UserRegisterView(CreateView):
             return super().dispatch(request, *args, **kwargs)
 
 
-class UserEditView(SuccessMessageMixin, UpdateView):
+class UserEditView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     form_class = forms.UserEditForm
     template_name = 'profile_edit.html'
     success_url = reverse_lazy('accounts:dashboard')
