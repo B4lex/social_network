@@ -1,0 +1,11 @@
+.field {
+    min-width: 300px;
+    max-width: 35%;
+}
+
+.heading {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: solid 1px gray;
+    min-width: 300px;
+}

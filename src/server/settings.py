@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 
+from django.urls import reverse_lazy
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +27,7 @@ SECRET_KEY = '2tcl%whv&*rob3#l^gd&!aa78dik&z6f0^f%*xo4e&u2oiu39d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -112,9 +115,11 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
+
+DATE_FORMAT = 'Y-m-d'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -129,5 +134,14 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
 
-from django.urls import reverse_lazy
 LOGIN_REDIRECT_URL = reverse_lazy('accounts:dashboard')
+LOGIN_URL = reverse_lazy('accounts:login')
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'social_core.backends.google.GoogleOAuth2',
+    'accounts.auth_backends.EmailAuthBackend',
+]
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '590192168733-pkabj3pg61pvp9hhcnoeprd3pascgin7.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'U2XeB55jo3zmiHWqKOwC_7A6'

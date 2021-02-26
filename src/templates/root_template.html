@@ -24,7 +24,7 @@
             {% endblock %}
         </ul>
         {% if request.user.is_authenticated %}
-            <span class="logout">Hello, {{ request.user.username }}, <a href="">Logout</a></span>
+            <span class="logout">Hello, {{ request.user.username }}, <a href="{% url 'accounts:logout' %}">Logout</a></span>
         {% endif %}
     </header>
     <div class="content-wrap">
