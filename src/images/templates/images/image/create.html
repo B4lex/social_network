@@ -1,0 +1,26 @@
+<form method="post" enctype='multipart/form-data' action="{% url 'images:image_create' %}" class="js-image-create-form">
+  {% csrf_token %}
+  <div class="modal-header">
+    <h4 class="modal-title">Create a new post</h4>
+  </div>
+  <div class="modal-body">
+      {% for field in form %}
+          <div class="fieldWrapper">
+              {{ field.errors }}
+              <div class="label-form">
+                {{ field.label_tag }}
+              </div>
+              <div class="field-form">
+                {{ field }}
+              </div>
+            {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+                </div>
+        {% endfor %}
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default closeForm">Close</button>
+    <button type="submit" class="btn btn-primary">Create post</button>
+  </div>
+</form>

@@ -1,0 +1,16 @@
+{% for image in images %}
+    <article class="card">
+        <figure class="thumbnail">
+            <img src="{{ image.image.url }}">
+        </figure>
+        <div class="card-content">
+            <h2>{{ image.title }}</h2>
+            <p>{{ image.desciption }}</p>
+        </div>
+    </article>
+    {% empty %}
+    <h1 class="text-center bg-warning">
+        No book
+    </h1>
+{% endfor %}
+

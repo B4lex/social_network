@@ -1,0 +1,24 @@
+{% extends 'authenticated_base.html' %}
+
+{% block title %}Images | Bookmarks{% endblock %}
+
+{% block content %}
+    <button type="submit" class="btn btn-green js-create-image" data-url="{% url 'images:image_create' %}">
+        <span class="glyphicon glyphicon-plus"></span>
+        Add new Images
+    </button>
+        <main class="main-area" id="book-table">
+        <div class="centered">
+        <section class="cards" id="cards">
+            {% include 'images/list.html' %}
+        </section>
+        </div>
+        </main>
+      <div class="modal fade" id="modal-image">
+        <div class="modal-dialog">
+          <div class="modal-content">
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
