@@ -131,4 +131,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
 
 from django.urls import reverse_lazy
-LOGIN_REDIRECT_URL = reverse_lazy('accounts:dashboard')
+LOGIN_REDIRECT_URL = '/feed/dashboard'
