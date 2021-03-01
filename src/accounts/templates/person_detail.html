@@ -1,0 +1,10 @@
+{% extends 'authenticated_base.html' %}
+
+{% block title %}{{ person.username }} | Bookmarks{% endblock %}
+
+{% block content %}
+    <h1 class="heading">{{ person.username }}</h1>
+    <h3>{{ person.first_name }} {{ person.last_name }}</h3>
+    <img src="{{ person.profile_image.url }}" class="rounded-image m-2">
+    <a href="#" class="btn btn-green-transparent">Follow</a>
+{% endblock %}

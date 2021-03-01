@@ -23,31 +23,17 @@
                     {{ error }}
                 </div>
             {% endfor %}
-            <div class="field form-floating mb-2">
-                <input type="{{ field.field.widget.input_type }}" name={{ field.name }} value={{ field.value }} class="form-control">
-                <label for={{ field.name }}>{{ field.label }}</label>
-            </div>
-        {% endfor %}
-
-        {% for field in profile_form %}
-            {% for error in field.errors %}
-                <div class="alert alert-danger" role="alert">
-                    {{ error }}
-                </div>
-            {% endfor %}
             {% if field.field.widget.input_type != 'file' %}
-            <div class="field form-floating mb-2">
-                <input type="{{ field.field.widget.input_type }}" name={{ field.name }} 
-                value={% if field.value %}{{ field.value }}{% else %}""{% endif %} 
-                class="form-control">
-                <label for={{ field.name }}>{{ field.label }}</label>
+                <div class="field form-floating mb-2">
+                    <input type="{{ field.field.widget.input_type }}" name={{ field.name }} value="{% if field.value %}{{ field.value }}{% endif %}" class="form-control">
+                    <label for={{ field.name }}>{{ field.label }}</label>
+                </div>
             {% else %}
-            <div class="field mb-2">
-                <label for={{ field.name }}>{{ field.label }}</label>
-                {{ field }}
-                <input type="{{ field.field.widget.input_type }}" name={{ field.name }} class="form-control">
+                <div class="field mb-2">
+                    <label for={{ field.name }}>{{ field.label }}</label>
+                    <input type="{{ field.field.widget.input_type }}" name={{ field.name }} class="form-control">
+                </div>
             {% endif %}
-            </div>
         {% endfor %}
 
         <button type="submit" class="btn btn-green">Save changes</button>
