@@ -65,3 +65,9 @@ header>.nav>li>a {
     border-color: var(--base-bg-color);
     background-color: var(--base-bg-color);
 }
+
+.btn-green-transparent {
+    color: var(--base-bg-color);
+    border-color: var(--base-bg-color);
+    background-color: white;
+}
