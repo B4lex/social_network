@@ -16,7 +16,7 @@ services:
     links:
       - db
     volumes:
-      - .:/code
+      - ./src:/code/src
     ports:
       - "8000:8000"
     command: sh ../docker-entrypoint.sh
