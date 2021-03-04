@@ -1,0 +1,22 @@
+version: "3.8"
+
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  app:
+    build: .
+    depends_on:
+      - db
+    links:
+      - db
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    command: sh ../docker-entrypoint.sh
