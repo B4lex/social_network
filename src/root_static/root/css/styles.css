@@ -17,7 +17,6 @@ header {
     flex-flow: row wrap;
     align-items: center;
     justify-content: flex-start;
-    block-size: auto;
 }
 
 header>.title {
@@ -67,9 +66,12 @@ header>.nav>li>a {
 }
 
 /*Images Thumbnail start*/
+div .centered {
+    padding-top: 1em;
+}
 
 .cards {
-    width: 50%;
+    width: 70%;
 
     margin-left: auto;
     margin-right: auto;
@@ -84,20 +86,19 @@ header>.nav>li>a {
 }
 
 .card-content {
-	padding: 1.4em;
+	padding: 0.7em;
 }
 
-.card-content h2 {
+.card-content h3 {
 	margin-top: 0;
-	margin-bottom: .5em;
 	font-weight: normal;
 }
 
 .card-content p {
-	font-size: 95%;
+    font-size: 95%;
 }
 
-img {
+.card img {
   width: 100%;
   height: auto;
 }
@@ -106,15 +107,17 @@ img {
   .cards {
     margin-top: -1em;
     display: flex;
-    justify-content: space-between;
+    padding: 0.4em;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
   .card {
     margin-bottom: 1em;
+      margin-right: 1em;
     display: flex;
     flex: 0 1 calc(50% - 0.5em);
-    /* width: calc(50% - 1em); */
+     width: calc(50% - 1em);
   }
 } /* mq 40em*/
 
@@ -127,7 +130,7 @@ img {
     margin-bottom: 2em;
     display: flex;
     flex: 0 1 calc(33% - 0.5em);
-    /* width: calc(33% - 1em); */
+     width: calc(33% - 1em);
   }
 } /* mq 60em*/
 
@@ -138,8 +141,92 @@ img {
     margin: 10px 10px;
 }
 .label-form label {
-  color: maroon; /* Цвет текста */
+    color: maroon; /* Цвет текста */
     font-weight: 600;
 }
 /* Create and Update form end*/
 
+/*Start buttom delete update like*/
+div .wrap {
+    width: 100%;
+
+}
+div .line-button {
+    float: left;
+    width: 50%;
+
+}
+
+.img-right {
+    padding-right: 0.5em;
+    float: right;
+}
+
+.img-left {
+    padding-left: 0.5em;
+}
+
+.img-size {
+    width: 1.5em;
+    height: 1.5em;
+
+}
+
+.like-image {
+    fill: black;
+}
+ .like-image:hover {
+    fill: red;
+}
+
+ .add-like-image {
+     fill: #ff003b;
+
+ }
+ .update-image {
+     fill: black;
+ }
+
+.update-image:hover {
+    fill: #0406ff;
+}
+
+.delete-image {
+    fill: black;
+}
+
+.count span{
+    padding-left: 0.4em;
+}
+/*End buttom delete update like*/
+
+
+/* Detail images start*/
+.card-detail {
+	background: white;
+
+    box-shadow: 3px 3px 8px hsl(0, 0%, 70%);
+}
+
+.card-content-detail {
+	padding: 0.7em;
+}
+
+.card-content-detail h1 {
+	margin-top: 0.4em;
+	font-weight: normal;
+}
+
+.card-content-detail p {
+    font-size: 95%;
+}
+
+.card-detail img {
+  width: 100%;
+  height: auto;
+}
+
+.card-detail {
+ width: calc(70% - 10em);
+}
+/* Detail images end */

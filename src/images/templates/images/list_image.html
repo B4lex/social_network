@@ -4,21 +4,19 @@
 
 {% block content %}
     <button type="submit" class="btn btn-green js-create-image" data-url="{% url 'images:image_create' %}">
-        <span class="glyphicon glyphicon-plus"></span>
-        Add new Images
+        <span class="glyphicon glyphicon-plus">Add new Image</span>
     </button>
-        <main class="main-area" id="book-table">
+    <main class="main-area" id="book-table">
         <div class="centered">
-        <section class="cards" id="cards">
-            {% include 'images/list.html' %}
-        </section>
+            <section class="cards" id="cards">
+                {% include 'images/list.html' %}
+            </section>
         </div>
-        </main>
-      <div class="modal fade" id="modal-image">
-        <div class="modal-dialog">
-          <div class="modal-content">
-          </div>
-        </div>
-      </div>
+    </main>
+    {% include 'images/modal.html' %}
+
+{% endblock %}
+
+{% block domready %}
 
 {% endblock %}

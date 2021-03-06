@@ -1,0 +1,31 @@
+{% extends 'authenticated_base.html' %}
+
+{% block title %}Images | Bookmarks{% endblock %}
+{% block content %}
+    <div class="centered">
+        <section class="cards">
+            <article class="card-detail">
+                <figure class="thumbnail image-poster">
+                    <img src="{{ image.image.url }}" >
+                </figure>
+
+                <div class="card-content-detail">
+                    <div class="wrap">
+                        <div class="line-button">
+                        {% include 'images/image/button/like.html' %}
+                        </div>
+                        <div class="line-button">
+                           {% include 'images/image/button/update_button.html' %}
+
+                        </div>
+                    </div>
+                    <div>
+                        <h1>{{ image.title }}</h1>
+                        <p>{{ image.desciption }}</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </div>
+    {% include 'images/modal.html' %}
+{% endblock %}

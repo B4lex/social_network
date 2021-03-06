@@ -1,16 +1,27 @@
+{% load static %}
 {% for image in images %}
     <article class="card">
+        <div class="menu-delete">
+            {% include 'images/image/button/delete_button.html' %}
+        </div>
         <figure class="thumbnail">
-            <img src="{{ image.image.url }}">
+            <a href="{{ image.get_absolute_url }}">
+                <img src="{{ image.image.url }}">
+            </a>
         </figure>
-        <div class="card-content">
-            <h2>{{ image.title }}</h2>
-            <p>{{ image.desciption }}</p>
+        <div class="wrap">
+            <div class="line-button">
+                {% include 'images/image/button/like.html' %}
+            </div>
+            <div class="line-button">
+                {% include 'images/image/button/update_button.html' %}
+            </div>
+        </div>
+        <div class="card-content-detail">
+            <h3>{{ image.title }}</h3>
+            <hr>
+            <p>{{ image.desciption|truncatewords:30 }}</p>
         </div>
     </article>
-    {% empty %}
-    <h1 class="text-center bg-warning">
-        No book
-    </h1>
 {% endfor %}
 

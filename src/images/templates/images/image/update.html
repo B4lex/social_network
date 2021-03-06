@@ -1,0 +1,12 @@
+<form method="post" enctype='multipart/form-data' action="{% url 'images:images_update' form.instance.pk %}" class="js-image-update-form">
+    <div class="modal-header">
+        <h4 class="modal-title">Update post</h4>
+    </div>
+    <div class="modal-body">
+        {% include 'images/image/form.html' %}
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default close">Close</button>
+        <button type="submit" class="btn btn-primary">Update post</button>
+    </div>
+</form>
