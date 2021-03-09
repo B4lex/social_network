@@ -65,6 +65,7 @@ header>.nav>li>a {
     background-color: var(--base-bg-color);
 }
 
+<<<<<<< HEAD
 /*Images Thumbnail start*/
 div .centered {
     padding-top: 1em;
@@ -230,3 +231,10 @@ div .line-button {
  width: calc(70% - 10em);
 }
 /* Detail images end */
+=======
+.btn-green-transparent {
+    color: var(--base-bg-color);
+    border-color: var(--base-bg-color);
+    background-color: white;
+}
+>>>>>>> development

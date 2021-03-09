@@ -14,6 +14,7 @@
 
     <script src="{% static 'root/js/main.js' %}"></script>
     <link href="{% static 'root/css/styles.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     {% block head_extra %}
     {% endblock %}
     <title>{% block title %}Bookmarks{% endblock %}</title>
@@ -28,7 +29,7 @@
             {% endblock %}
         </ul>
         {% if request.user.is_authenticated %}
-            <span class="logout">Hello, {{ request.user.username }}, <a href="">Logout</a></span>
+            <span class="logout">Hello, {{ request.user.username }}, <a href="{% url 'accounts:logout' %}">Logout</a></span>
         {% endif %}
     </header>
     <div class="content-wrap">

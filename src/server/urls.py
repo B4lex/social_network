@@ -22,13 +22,16 @@ from django.views.static import serve
 from django.contrib.staticfiles.urls import static, staticfiles_urlpatterns
 
 
+from django.conf.urls.static import static
+
+
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='root_template.html')),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('images/', include('images.urls', namespace='images')),
-]
+    path('social_auth/', include('social_django.urls', namespace='social')),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG is True:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

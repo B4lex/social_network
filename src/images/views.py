@@ -6,6 +6,7 @@ from django.template.loader import render_to_string
 from .models import Image
 from .forms import ImagesForm
 
+
 from images.common.decorators.decoratots import ajax_required
 
 
@@ -47,9 +48,11 @@ def image_create(request):
 @login_required
 def images_update(request, pk):
     image = get_object_or_404(Image, pk=pk)
+    print('pizdas')
     if request.method == 'POST':
         form = ImagesForm(request.POST, files=request.FILES, instance=image)
     else:
+
         form = ImagesForm(instance=image)
     return save_image_form(request, form, 'images/image/update.html')
 
