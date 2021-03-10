@@ -1,5 +1,5 @@
 # Social Network
-## This is a simple app that provides to its users theirs bookmarks with other.
+## This is a simple app that provides to its users functionality to share theirs bookmarks with other.
 
 ### To run:
 ```
