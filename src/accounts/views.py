@@ -28,7 +28,7 @@ class UserRegisterView(CreateView):
     def form_valid(self, form):
         return_value = super().form_valid(form)
         self.object.is_staff = True
-        login(self.request, self.object)
+        login(self.request, self.object, backend='django.contrib.auth.backends.ModelBackend')
         return return_value
 
     def dispatch(self, request, *args, **kwargs):
