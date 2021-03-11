@@ -2,3 +2,6 @@ Django==3.1.7
 Pillow==8.1.0
 social_auth_app_django==4.0.0
 psycopg2-binary==2.8.6
+djangorestframework==3.12.2
+markdown==3.3.4
+django-filter==2.4.0
