@@ -24,4 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('social_auth/', include('social_django.urls', namespace='social')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('api-auth/', include('rest_framework.urls'))
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
