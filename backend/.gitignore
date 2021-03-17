@@ -1,6 +1,0 @@
-venv
-.idea
-media
-db.sqlite3
-/src/static/
-__pycache__

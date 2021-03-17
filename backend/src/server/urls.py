@@ -20,11 +20,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='root_template.html')),
+    # path('', TemplateView.as_view(template_name='root_template.html')),
+    # path('api/v1/', include(''))
+    path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
-    path('social_auth/', include('social_django.urls', namespace='social')),
-    path('api-auth/', include('rest_framework.urls'))
+    path('api/', include('images.urls')),
+
+    # path('accounts/', include('accounts.urls')),
+    # path('social_auth/', include('social_django.urls', namespace='social')),
+
 ]
 
 if settings.DEBUG:
