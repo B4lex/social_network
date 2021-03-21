@@ -11,6 +11,7 @@ def get_image_upload_path(instance, filename):
 class ExtendedUser(AbstractUser):
     profile_image = models.ImageField(upload_to=get_image_upload_path, default='no_avatar.png', blank=True)
     birth_date = models.DateField(null=True, blank=True)
+    is_verified = models.BooleanField(default=False)
     following = models.ManyToManyField(
         'self', through='accounts.FollowRelation', related_name='followers',
         null=True, blank=True, symmetrical=False

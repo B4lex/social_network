@@ -1,7 +1,6 @@
 <template>
-  <v-container>
     <v-row justify="center">
-    <v-card v-for="item in post" :key="item.username" max-width="800" class="mx-12 my-10">
+    <v-card v-for="item in post" :key="item.id" max-width="800" class="mx-12 my-10">
       <v-card-actions class="mx-auto my-auto">
         <v-img :src="item.userImage" max-width="50" class="rounded-circle" height="50" width="100%"></v-img>
         <v-card-title class="font-weight-medium">{{item.username}}</v-card-title>
@@ -37,12 +36,12 @@
       <v-card-actions v-if="item.descriptions">
         <v-btn color="orange lighten-2" text>Explore</v-btn>
         <v-spacer></v-spacer>
-        <v-btn icon v-on:click=" item.show = !item.show" :id="item.id">
-          <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+        <v-btn icon @click="item.show = !item.show">
+          <v-icon>{{ item.show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
         </v-btn>
       </v-card-actions>
-      <v-expand-transition>
-        <div :id="item.id"  v-show="item.show">
+      <v-expand-transition  v-if="item.show">
+        <div>
           <v-divider></v-divider>
           <v-card-text>
             {{item.descriptions}}
@@ -50,18 +49,23 @@
         </div>
       </v-expand-transition>
     </v-card>
-    <h1>{{info}}</h1>
     </v-row>
-  </v-container>
 </template>
 <script>
+import axios from 'axios'
 
 export default {
   name: 'home',
   data () {
+    axios.get('http://127.0.0.1:8000/api/images/event/').then((response) => {
+      this.candidates = response.data
+      console.log(response)
+    })
     return {
+      candidates: null,
       post: [
         {
+          id: 1,
           show: false,
           username: 'admin',
           title: 'Admin',
@@ -75,6 +79,7 @@ export default {
           ]
         },
         {
+          id: 2,
           show: false,
           username: 'admin',
           title: 'Admin',
@@ -88,6 +93,7 @@ export default {
           ]
         },
         {
+          id: 3,
           show: false,
           username: 'Heroke',
           title: 'mer',
@@ -102,9 +108,15 @@ export default {
         }
       ]
     }
+  },
+  method: {
+    getUsers () {
+      console.log('Getting data')
+      axios.get('http://127.0.0.1:8000/api/event/').then((response) => {
+        this.candidates = response.data
+        console.log(response)
+      })
+    }
   }
 }
 </script>
-<style>
-
-</style>

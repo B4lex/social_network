@@ -18,17 +18,13 @@ from django.urls import path, include
 from django.views.generic.base import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework_simplejwt import views as jwt_views
+
 
 urlpatterns = [
-    # path('', TemplateView.as_view(template_name='root_template.html')),
-    # path('api/v1/', include(''))
-    path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
-    path('api/', include('images.urls')),
-
-    # path('accounts/', include('accounts.urls')),
-    # path('social_auth/', include('social_django.urls', namespace='social')),
-
+    path('api/images/', include('images.urls')),
+    path('api/', include('accounts.urls'), name='accounts'),
 ]
 
 if settings.DEBUG:
