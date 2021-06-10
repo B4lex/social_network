@@ -1,0 +1,17 @@
+{% extends 'authenticated_base.html' %}
+{% load static %}
+
+{% block title %}Dashboard | Bookmarks{% endblock %}
+
+{% block content %}
+    <div class="messages">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    </div>
+    <h1 class="heading">Dashboard</h1>
+    Welcome to your Dashboard. You can <a href="{% url 'accounts:profile-edit' %}">change your profile</a> or
+    <a href="{% url 'accounts:password-change' %}">change password</a>.
+{% endblock %}

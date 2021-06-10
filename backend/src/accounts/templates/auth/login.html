@@ -1,0 +1,42 @@
+{% extends 'root_template.html' %}
+{% load static %}
+
+{% block head_extra %}
+    <link href={% static 'accounts/css/login.css' %} rel="stylesheet">
+{% endblock %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <form method="POST" class="container">
+        {% for error in form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endfor %}
+        {% csrf_token %}
+        <div class="form-floating mb-3">
+            {% for error in form.username.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+            <input type="text" name={{ form.username.name }} class="form-control">
+            <label for={{ form.username.name }}>Username</label>
+        </div>
+        <div class="form-floating mb-3">
+            {% for error in form.password.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+            <input type="password" name={{ form.password.name }} class="form-control">
+            <label for={{ form.password.name }}>Password</label>
+        </div>
+        <button type="submit" class="btn btn-green">Sign In</button>
+    </form>
+    <a class="google-auth" href="{% url 'social:begin' 'google-oauth2' %}">
+        <img src="{% static 'accounts/images/google-logo.png' %}">
+        <span>Login with Google</span>
+    </a>
+{% endblock %}
